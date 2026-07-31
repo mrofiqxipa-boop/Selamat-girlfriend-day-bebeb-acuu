@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day Beb! ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #4a4a4a;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Hiasan Bunga & Kupu-kupu Layar Belakang */
+        .decoration {
+            position: fixed;
+            font-size: 3rem;
+            user-select: none;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .flower-1 { top: 3%; left: 4%; font-size: 3.5rem; }
+        .flower-2 { bottom: 4%; right: 4%; font-size: 3.8rem; }
+        .flower-3 { top: 12%; right: 6%; font-size: 2.8rem; }
+        .butterfly-1 { top: 20%; left: 8%; animation-delay: 1s; font-size: 3.2rem; }
+        .butterfly-2 { bottom: 15%; left: 5%; animation-delay: 2s; font-size: 3.5rem; }
+        .butterfly-3 { top: 40%; right: 5%; animation-delay: 1.5s; font-size: 3rem; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(8deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.93);
+            padding: 28px 22px;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(238, 156, 167, 0.4);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            border: 2px solid #ffb6c1;
+        }
+
+        /* Halaman Container */
+        .page {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .header-decor {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Highlight Text */
+        .highlight {
+            color: #d81b60;
+            font-weight: bold;
+        }
+
+        /* Styling Galeri Foto */
+        .photo-card {
+            background: #fff0f3;
+            padding: 10px;
+            border-radius: 16px;
+            border: 1px solid #ffccd5;
+            margin-bottom: 15px;
+        }
+
+        .single-photo {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #fff;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .message-box {
+            background: #fff5f7;
+            padding: 15px;
+            border-radius: 14px;
+            border-left: 5px solid #ff4d6d;
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 0.93rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        /* Navigasi Tombol */
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.35);
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 77, 109, 0.45);
+        }
+
+        button:disabled {
+            background: #e0e0e0;
+            color: #a0a0a0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .surprise-box {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #ffe3e8;
+            border-radius: 14px;
+            color: #c2185b;
+            font-weight: bold;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border: 2px dashed #ff4d6d;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dekorasi Bunga & Kupu-kupu Besar Pink -->
+    <div class="decoration flower-1">🌸</div>
+    <div class="decoration flower-2">🌺</div>
+    <div class="decoration flower-3">🌸</div>
+    <div class="decoration butterfly-1">🦋</div>
+    <div class="decoration butterfly-2">🦋</div>
+    <div class="decoration butterfly-3">🌸</div>
+
+    <div class="container">
+        
+        <!-- HALAMAN 1 -->
+        <div class="page active" id="page1">
+            <div class="header-decor">🌸 🦋 🌸</div>
+            <h1>Happy Girlfriend Day Beb! ❤️</h1>
+            <p>Hallo cantikku! Selamat hari <span class="highlight">National Girlfriend Day</span> yaaa.</p>
+            <p>Web manis berhias bunga dan kupu-kupu ini aku buat khusus cuma buat kamu. Klik tombol di bawah buat lanjut ya sayang! 👇</p>
+        </div>
+
+        <!-- HALAMAN 2 -->
+        <div class="page" id="page2">
+            <div class="header-decor">💖 ✨ 💖</div>
+            <h1>Aku Sayang Kamu!</h1>
+            <p>Aku mau ngomong sesuatu yang serius sama kamu...</p>
+            <div class="message-box">
+                <p><strong>Aku sayang kamu, dan aku beneran serius sama kamuuu! 🥺❤️</strong></p>
+                <p style="margin-top: 10px;">Makasih yaa beb udah selalu ada, sabar, dan bikin hari-hariku jadi jauh lebih bermakna dan indah. Love uu so much! 🫶</p>
+            </div>
+        </div>
+
+        <!-- HALAMAN 3 -->
+        <div class="page" id="page3">
+            <div class="header-decor">📍 📸 🗺️</div>
+            <h1>Janji Kita ke Garut! ✨</h1>
+            <p>Tunggu aku yaa beb! Nanti setelah uangnya cukup, aku bakal langsung susul kamu ke <span class="highlight">Garut</span>! 🚗💨</p>
+            <div class="message-box" style="border-left-color: #d81b60;">
+                <p><strong>Rencana seru kita di Garut nanti:</strong></p>
+                <ul style="margin-left: 18px; margin-top: 8px;">
+                    <li>📸 Mampir ke Photobooth foto bareng</li>
+                    <li>🧋 Jajan-jajan lucu sepuasnya</li>
+                    <li>🛵 Jalan-jalan keliling Garut</li>
+                    <li>🥰 Seneng-seneng bareng seharian!</li>
+                </ul>
+            </div>
+            <p style="font-size: 0.85rem; color: #888;">Pokoknya ditunggu ya sayang! 😘</p>
+        </div>
+
+        <!-- HALAMAN 4 -->
+        <div class="page" id="page4">
+            <div class="header-decor">🌸 🦋 🌸</div>
+            <h1>Pesan Terakhir & Kejutan 🎁</h1>
+            <p>Makasih yaa udah mau nunggu dan tumbuh bareng-bareng. Kamu itu hal terindah dalam hidup aku.</p>
+            <p>I love you so much beb! ❤️</p>
+            
+            <button onclick="toggleSurprise()" style="margin-top: 10px;">Klik Hadiah Kejutan! 🎁</button>
+            <div id="surprise" class="surprise-box">
+                🎉 Tiket Janji Jalan-Jalan + Photobooth + Jajan Sepuasnya di Garut pas aku sampai sana! Ditanggung full sama aku! 😘🧋🌸
+            </div>
+        </div>
+
+        <!-- TOMBOL NAVIGASI -->
+        <div class="btn-group">
+            <button id="prevBtn" onclick="changePage(-1)" disabled>Sebelumnya</button>
+            <button id="nextBtn" onclick="changePage(1)">Berikutnya ➔</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+
+        function changePage(direction) {
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            currentPage += direction;
+            document.getElementById(`page${currentPage}`).classList.add('active');
+
+            // Kontrol Tombol Sebelum
+            if (currentPage === 1) {
+                document.getElementById('prevBtn').disabled = true;
+            } else {
+                document.getElementById('prevBtn').disabled = false;
+            }
+
+            // Kontrol Tombol Berikutnya
+            if (currentPage === totalPages) {
+                document.getElementById('nextBtn').style.display = 'none';
+            } else {
+                document.getElementById('nextBtn').style.display = 'block';
+            }
+        }
+
+        function toggleSurprise() {
+            const box = document.getElementById('surprise');
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+  </html>
